@@ -14,7 +14,7 @@
  <body>
 
  <header>
-   <h1>NBA 1K19</h1>
+   <p class="head">NBA 1K19</p>
 
  <nav>
    <ul>
@@ -28,7 +28,18 @@
 
 
    <%= yield %>
-
+  <footer>
+    <div class="left">
+    <%if @logged_in%>
+      Hello, <%= @logged_in_user.username.titleize%>, you're logged in! (<%=link_to "Logout", logout_path, method: :post%>)
+    <% else %>
+      Please <%= link_to "Login", login_path %> or <%= link_to "Sign Up", new_user_path %>
+    <%end%>
+    </div>
+    <div class="right">
+      &copy;Developed by B-Cryp Inc.
+    </div>
+  </footer>
 
  </body>
 </html>
