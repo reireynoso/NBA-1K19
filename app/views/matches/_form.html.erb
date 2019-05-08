@@ -1,0 +1,9 @@
+<%= form_for @match do |form| %>
+  <%= form.label :home_team_id %>
+  <%= form.collection_select :home_team_id, HomeTeam.all, :id, :name %>
+  <br>
+  <%= form.label :away_team_id %>
+  <%= form.collection_select :away_team_id, AwayTeam.all, :id, :name %>
+  <br>
+  <%= form.submit value="Start Game"%>
+<% end %>

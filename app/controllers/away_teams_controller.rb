@@ -1,0 +1,2 @@
+class AwayTeamsController < ApplicationController
+end

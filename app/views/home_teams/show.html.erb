@@ -1,0 +1,26 @@
+<h1 style="text-align: center">Welcome To <%= @home_team.name %>'s Page!</h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
+<h3>Your Starting Lineup:</h3>
+<ul>
+  <% @home_team.home_players.each do |player| %>
+    <li>
+      <%= link_to "#{player.name}", player %> (<%= player.position %>)
+    </li>
+  <% end %>
+</ul>
+
+<h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
+<br>
+<br>
+<%= link_to "Add Players To Your Roster", new_contract_path %>
+<br>
+<br>
+<%= link_to "Play A Game", new_match_path%>
+<br>
+<%= link_to "Back To My Teams", home_teams_path %>
+<br>
+<%=button_to "Logout", logout_path%>

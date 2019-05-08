@@ -1,0 +1,2 @@
+class AwayPlayersController < ApplicationController
+end

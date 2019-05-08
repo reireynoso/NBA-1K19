@@ -1,0 +1,17 @@
+<h1>Your Teams:</h1>
+
+<ol>
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to "#{team.name}", team %>
+      <%= button_to "Delete Team", team, method: :delete %>
+    </li>
+  <% end %>
+</ol>
+
+<%= button_to "Create A Team", new_home_team_path, method: :get %>
+<%=button_to "Logout", logout_path%>
+
+<div id="footer">
+  <%= render "footer" %>
+</div>
