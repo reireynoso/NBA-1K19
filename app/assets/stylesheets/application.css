@@ -46,7 +46,20 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+ }
+
+ nav {
+   display: flex;
+   justify-content: space-between;
+   background-color: #333;
+   font-family: cursive;
+   font-size: 25px;
+ }
+
+ .right {
+   padding: 15px 40px;
+   color: white;
+
  }
 
  nav li {
@@ -94,7 +107,37 @@
    bottom:0;
    width:100%;
    height:43px;
-   background:#ffffff;
+   background:#eee;
    display: flex;
    justify-content: space-between;
+}
+
+.right {
+  float: right;
+}
+
+
+.lineup {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: auto;
+  margin-left: 20px;
+  font-size: 175%;
+}
+
+.lineup td, .lineup th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.lineup tr:nth-child(even){background-color: #f2f2f2;}
+
+.lineup tr:hover {background-color: #ddd;}
+
+.lineup th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #333;
+  color: white;
 }

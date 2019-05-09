@@ -1,22 +1,42 @@
-<h1 style="text-align: center">Welcome To <%= @home_team.name %>'s Page!</h1>
-
 <% if flash[:notice] %>
   <%= flash[:notice] %>
 <% end %>
 
-<h3>Your Starting Lineup:</h3>
-<ul>
-  <% @home_team.home_players.each do |player| %>
-    <li>
-      <%= link_to "#{player.name}", player %> (<%= player.position %>)
-    </li>
-  <% end %>
-</ul>
+<div class="lineup">
+  <h3>Your Starting Lineup:</h3>
+  <table>
+    <tr>
+      <th>Player Name</th>
+      <th>Position</th>
+    </tr>
+    <tr>
+      <td><%= @home_team.home_players.first.name %></td>
+      <td><%= @home_team.home_players.first.position %></td>
+    </tr>
+    <tr>
+      <td><%= @home_team.home_players.second.name %></td>
+      <td><%= @home_team.home_players.second.position %></td>
+    </tr>
+    <tr>
+      <td><%= @home_team.home_players.third.name %></td>
+      <td><%= @home_team.home_players.third.position %></td>
+    </tr>
+    <tr>
+      <td><%= @home_team.home_players.fourth.name %></td>
+      <td><%= @home_team.home_players.fourth.position %></td>
+    </tr>
+    <tr>
+      <td><%= @home_team.home_players.fifth.name %></td>
+      <td><%= @home_team.home_players.fifth.position %></td>
+    </tr>
+  </table>
 
-<h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
+  <h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
+</div>
+
+
 <br>
 <br>
-<%= link_to "Add Players To Your Roster", new_contract_path %>
+<%= button_to "Add Players To Your Roster", new_contract_path, method: :get %>
 <br>
-<br>
-<%= link_to "Play A Game", new_match_path%>
+<%= button_to "Play A Game", new_match_path, method: :get%>

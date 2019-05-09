@@ -17,26 +17,31 @@
    <p class="head">NBA 1K19</p>
 
  <nav>
-   <ul>
-     <li><a class="active" href="/">Home</a></li>
-     <li><a href="home_teams">My Teams</a></li>
-     <li><a href="#contact">Contact</a></li>
-     <li><a href="#about">About</a></li>
-   </ul>
+   <div>
+     <ul>
+       <li><a class="active" href="/">Home</a></li>
+       <li><a href="home_teams">My Teams</a></li>
+       <li><a href="#contact">Contact</a></li>
+       <li><a href="#about">About</a></li>
+     </ul>
+    </div>
+   <div class="right">
+     Welcome To <%= @home_team.name.titleize %>'s Team Page!
+   </div>
  </nav>
  </header>
 
 
    <%= yield %>
   <footer>
-    <div class="left">
+    <div>
     <%if @logged_in%>
       Hello, <%= @logged_in_user.username.titleize%>, you're logged in! (<%=link_to "Logout", logout_path, method: :post%>)
     <% else %>
       Please <%= link_to "Login", login_path %> or <%= link_to "Sign Up", new_user_path %>
     <%end%>
     </div>
-    <div class="right">
+    <div>
       &copy;Developed by B-Cryp Inc.
     </div>
   </footer>
