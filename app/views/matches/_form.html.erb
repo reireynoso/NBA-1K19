@@ -1,9 +1,11 @@
-<%= form_for @match do |form| %>
-  <%= form.label :home_team_id %>
-  <%= form.collection_select :home_team_id, HomeTeam.all, :id, :name %>
-  <br>
-  <%= form.label :away_team_id %>
-  <%= form.collection_select :away_team_id, AwayTeam.all, :id, :name %>
-  <br>
-  <%= form.submit value="Start Game"%>
-<% end %>
+<div class="container">
+  <%= form_for @match do |form| %>
+    Home Team(PICK YOUR TEAM):
+    <%= form.collection_select(:home_team_id, @your_teams, :id, :name, {}, {:class => "collect"}) %>
+    <br>
+    Away Team:
+    <%= form.collection_select(:away_team_id, AwayTeam.all, :id, :name, {}, {:class => "collect"}) %>
+    <br>
+    <%= form.submit value="Start Game"%>
+  <% end %>
+</div>

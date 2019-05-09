@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @your_teams = HomeTeam.where(user_id: @logged_in_user_id)
   end
 
   def create
@@ -54,10 +55,10 @@ class MatchesController < ApplicationController
     @winner = @odds_array.sample
     if @winner == "A"
       @match.home_team.update_attributes(num_of_wins: (@match.home_team.num_of_wins + 1))
-      flash[:notice] = "Good job, you won!"
+      flash[:win] = "Good job, you won!"
     else
       @match.home_team.update_attributes(num_of_losses: (@match.home_team.num_of_losses + 1))
-      flash[:notice] = "You suck! You lost!"
+      flash[:lose] = "You suck! You lost!"
     end
   end
 end

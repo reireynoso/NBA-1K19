@@ -1,47 +1,67 @@
-<%= render "header" %>
-
-
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
+<% if flash[:win] %>
+  <div class="win">
+    <%= flash[:win] %>
+  </div>
+<% end %>
+<% if flash[:lose] %>
+  <div class="lose">
+    <%= flash[:lose] %>
+  </div>
 <% end %>
 
-<div class="lineup">
-  <h3>Your Starting Lineup:</h3>
-  <% if @home_team.home_players.length > 0 %>
+<div class="flex">
+  <div class="lineup">
+    <h3>Your Starting Lineup:</h3>
+    <% if @home_team.home_players.length > 0 %>
+      <table>
+        <tr>
+          <th>Player Name</th>
+          <th>Position</th>
+        </tr>
+        <tr>
+          <td><%= @home_team.home_players.first.name %></td>
+          <td><%= @home_team.home_players.first.position %></td>
+        </tr>
+        <tr>
+          <td><%= @home_team.home_players.second.name %></td>
+          <td><%= @home_team.home_players.second.position %></td>
+        </tr>
+        <tr>
+          <td><%= @home_team.home_players.third.name %></td>
+          <td><%= @home_team.home_players.third.position %></td>
+        </tr>
+        <tr>
+          <td><%= @home_team.home_players.fourth.name %></td>
+          <td><%= @home_team.home_players.fourth.position %></td>
+        </tr>
+        <tr>
+          <td><%= @home_team.home_players.fifth.name %></td>
+          <td><%= @home_team.home_players.fifth.position %></td>
+        </tr>
+      </table>
+
+    <h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
+    <% end %>
+    <div id="rei">
+      <%= button_to "Add Players To Your Roster", new_contract_path, method: :get %>
+      <%= button_to "Play A Game", new_match_path, method: :get%>
+    </div>
+  </div>
+
+
+  <div class="leaderboard">
     <table>
+      <h3>LeaderBoard:</h3>
       <tr>
-        <th>Player Name</th>
-        <th>Position</th>
+        <th>Username</th>
+        <th>Record</th>
       </tr>
-      <tr>
-        <td><%= @home_team.home_players.first.name %></td>
-        <td><%= @home_team.home_players.first.position %></td>
-      </tr>
-      <tr>
-        <td><%= @home_team.home_players.second.name %></td>
-        <td><%= @home_team.home_players.second.position %></td>
-      </tr>
-      <tr>
-        <td><%= @home_team.home_players.third.name %></td>
-        <td><%= @home_team.home_players.third.position %></td>
-      </tr>
-      <tr>
-        <td><%= @home_team.home_players.fourth.name %></td>
-        <td><%= @home_team.home_players.fourth.position %></td>
-      </tr>
-      <tr>
-        <td><%= @home_team.home_players.fifth.name %></td>
-        <td><%= @home_team.home_players.fifth.position %></td>
-      </tr>
+      <% @all_users.each do |user| %>
+        <tr>
+          <td><%= user.username.titleize %></td>
+          <td>(<%= user.home_teams.first.num_of_wins %>-<%= user.home_teams.first.num_of_losses %>)</td>
+        </tr>
+      <% end %>
     </table>
-
-  <h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
-  <% end %>
+  </div>
 </div>
-
-
-<br>
-<br>
-<%= button_to "Add Players To Your Roster", new_contract_path, method: :get %>
-<br>
-<%= button_to "Play A Game", new_match_path, method: :get%>

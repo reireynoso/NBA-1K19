@@ -11,8 +11,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(check_params)
-    log_in_user(@user.id)
-    redirect_to home_teams_path
+    if @user.valid?
+      log_in_user(@user.id)
+      redirect_to home_teams_path
+    else
+      render :new
+    end
   end
 
   def destroy

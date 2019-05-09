@@ -4,55 +4,59 @@
   <% end %>
 </ul>
 
-<%= form_for @contract do |form| %>
-  Point Guard:
-  <%= form.collection_select :home_player_id, @point_guards, :id, :name%>
+<div class="pick-players1">
+  <%= form_for @contract do |form| %>
+    Point Guard:
+    <%= form.collection_select(:home_player_id, @point_guards, :id, :name, {}, {:class => "collect"})%>
+    <br>
+    <%= form.label :team %>
+    <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
+    <br>
+    <%= form.submit value = "Add Player"%>
+  <% end %>
   <br>
-  <%= form.label :team %>
-  <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
-  <br>
-  <%= form.submit value = "Add Player"%>
-<% end %>
-<br>
 
-<%= form_for @contract do |form| %>
-  Shooting Guard:
-  <%= form.collection_select :home_player_id, @shooting_guards, :id, :name%>
+  <%= form_for @contract do |form| %>
+    Shooting Guard:
+    <%= form.collection_select(:home_player_id, @shooting_guards, :id, :name, {}, {:class => "collect"})%>
+    <br>
+    <%= form.label :team %>
+    <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
+    <br>
+    <%= form.submit value = "Add Player"%>
+  <% end %>
   <br>
-  <%= form.label :team %>
-  <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
-  <br>
-  <%= form.submit value = "Add Player"%>
-<% end %>
-<br>
 
-<%= form_for @contract do |form| %>
-  Small Forward:
-  <%= form.collection_select :home_player_id, @small_forwards, :id, :name%>
+  <%= form_for @contract do |form| %>
+    Small Forward:
+    <%= form.collection_select(:home_player_id, @small_forwards, :id, :name, {}, {:class => "collect"})%>
+    <br>
+    <%= form.label :team %>
+    <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
+    <br>
+    <%= form.submit value = "Add Player"%>
+  <% end %>
   <br>
-  <%= form.label :team %>
-  <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
-  <br>
-  <%= form.submit value = "Add Player"%>
-<% end %>
-<br>
+</div>
 
-<%= form_for @contract do |form| %>
-  Power Forward:
-  <%= form.collection_select :home_player_id, @power_forwards, :id, :name%>
-  <br>
-  <%= form.label :team %>
-  <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
-  <br>
-  <%= form.submit value = "Add Player"%>
-<% end %>
+<div class="pick-players2">
+  <%= form_for @contract do |form| %>
+    Power Forward:
+    <%= form.collection_select(:home_player_id, @power_forwards, :id, :name, {}, {:class => "collect"})%>
+    <br>
+    <%= form.label :team %>
+    <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
+    <br>
+    <%= form.submit value = "Add Player"%>
+  <% end %>
 
-<%= form_for @contract do |form| %>
-  Center:
-  <%= form.collection_select :home_player_id, @centers, :id, :name%>
-  <br>
-  <%= form.label :team %>
-  <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
-  <br>
-  <%= form.submit value = "Add Player"%>
-<% end %>
+  <%= form_for @contract do |form| %>
+    Center:
+    <%= form.collection_select(:home_player_id, @centers, :id, :name, {}, {:class => "collect"})%>
+    <br>
+    <%= form.label :team %>
+    <%= form.collection_select :home_team_id, @your_teams, :id, :name %>
+    <br>
+    <%= form.submit value = "Add Player"%>
+  <% end %>
+</div>

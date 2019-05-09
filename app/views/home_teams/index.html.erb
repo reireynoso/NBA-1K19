@@ -1,16 +1,17 @@
-<%= render "header" %>
-<body>
 
-<h1>Your Teams:</h1>
+  <div class="container">
 
-<ol>
-  <% @teams.each do |team| %>
-    <li>
-      <%= link_to "#{team.name}", team %>
-      <%= button_to "Delete Team", team, method: :delete %>
-    </li>
-  <% end %>
-</ol>
+    <h1 style="text-align:center;">Your Teams:</h1>
 
-<%= button_to "Create A Team", new_home_team_path, method: :get %>
-</body>
+    <h2>
+      <ol>
+        <% @teams.each do |team| %>
+          <li>
+            <%= link_to "#{team.name}", team %>
+            <%= button_to("Delete Team", team, method: :delete, :id => "delete") %>
+          </li>
+        <% end %>
+      </ol>
+    </h2>
+    <%= button_to "Create A Team", new_home_team_path, method: :get %>
+  </div>

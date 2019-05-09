@@ -19,8 +19,10 @@ class HomeTeamsController < ApplicationController
     end
   end
 
+
   def show
     @home_team = HomeTeam.find(params[:id])
+    @all_users = User.all.sort_by {|user| user.home_teams.first.num_of_wins}.reverse
   end
 
   def destroy
