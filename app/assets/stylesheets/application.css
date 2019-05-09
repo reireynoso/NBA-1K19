@@ -78,6 +78,10 @@
     background-color: #111;
  }
 
+ .active {
+   background-color: #65bec6;
+ }
+
  a {
    color: @linkBlue;
    display: inline-block;

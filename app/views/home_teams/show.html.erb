@@ -1,37 +1,42 @@
+<%= render "header" %>
+
+
 <% if flash[:notice] %>
   <%= flash[:notice] %>
 <% end %>
 
 <div class="lineup">
   <h3>Your Starting Lineup:</h3>
-  <table>
-    <tr>
-      <th>Player Name</th>
-      <th>Position</th>
-    </tr>
-    <tr>
-      <td><%= @home_team.home_players.first.name %></td>
-      <td><%= @home_team.home_players.first.position %></td>
-    </tr>
-    <tr>
-      <td><%= @home_team.home_players.second.name %></td>
-      <td><%= @home_team.home_players.second.position %></td>
-    </tr>
-    <tr>
-      <td><%= @home_team.home_players.third.name %></td>
-      <td><%= @home_team.home_players.third.position %></td>
-    </tr>
-    <tr>
-      <td><%= @home_team.home_players.fourth.name %></td>
-      <td><%= @home_team.home_players.fourth.position %></td>
-    </tr>
-    <tr>
-      <td><%= @home_team.home_players.fifth.name %></td>
-      <td><%= @home_team.home_players.fifth.position %></td>
-    </tr>
-  </table>
+  <% if @home_team.home_players.length > 0 %>
+    <table>
+      <tr>
+        <th>Player Name</th>
+        <th>Position</th>
+      </tr>
+      <tr>
+        <td><%= @home_team.home_players.first.name %></td>
+        <td><%= @home_team.home_players.first.position %></td>
+      </tr>
+      <tr>
+        <td><%= @home_team.home_players.second.name %></td>
+        <td><%= @home_team.home_players.second.position %></td>
+      </tr>
+      <tr>
+        <td><%= @home_team.home_players.third.name %></td>
+        <td><%= @home_team.home_players.third.position %></td>
+      </tr>
+      <tr>
+        <td><%= @home_team.home_players.fourth.name %></td>
+        <td><%= @home_team.home_players.fourth.position %></td>
+      </tr>
+      <tr>
+        <td><%= @home_team.home_players.fifth.name %></td>
+        <td><%= @home_team.home_players.fifth.position %></td>
+      </tr>
+    </table>
 
   <h3>Your Record: (<%= @home_team.num_of_wins %>-<%= @home_team.num_of_losses %>)</h3>
+  <% end %>
 </div>
 
 
